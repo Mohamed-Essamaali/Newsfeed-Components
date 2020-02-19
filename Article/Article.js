@@ -112,3 +112,61 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+const componentPanel = (object)=>{
+    const article = document.createElement('div');
+    article.classList.add = 'article';
+    article.classList.add = 'article-open';
+
+    const title = document.createElement('h2');
+    title.textContent = object.title;
+
+    const dateArticle = document.createElement('p');
+    dateArticle.classList.add = 'date';
+    dateArticle.textContent = object.date;
+
+    const firstP = document.createElement('p');
+    firstP.classList.add = 'firstP';
+    firstP.textContent = object.firstParagraph;
+
+    const secondP = document.createElement('p');
+    secondP.classList.add = 'secondP';
+    secondP.textContent = object.secondParagraph;
+
+    const thirdP = document.createElement('p');
+    thirdP.classList.add = 'firstP';
+    thirdP.textContent = object.thirdParagraph;
+
+    const expandButton = document.createElement('span');
+    expandButton.classList.add= 'expandButton';
+
+    // call back of event listener
+    // const buttonToggler = ()=>{
+    //   expandButton.classList.toggle('.expandButton');
+    // };
+
+    // event listener
+    expandButton.addEventListener('click',()=>{
+      expandButton.classList.toggle('.expandButton');
+      article.classList.toggle('article-open');
+    });
+
+    //append all elements to the article
+    article.appendChild(title);
+    article.appendChild(dateArticle);
+    article.appendChild(firstP);
+    article.appendChild(secondP);
+    article.appendChild(thirdP);
+    article.appendChild(expandButton);
+  
+   return article;
+}
+
+const articles = document.querySelector('.articles');
+data.forEach(object=>{
+  const newArticle = componentPanel(object);
+console.log(newArticle);
+  articles.appendChild(newArticle);
+})
+
+
+
