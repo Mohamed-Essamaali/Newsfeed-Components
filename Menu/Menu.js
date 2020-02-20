@@ -34,39 +34,44 @@ let menuItems = [
   
   const menuFunction = (arr)=>{
     const menu = document.createElement('div');
-    menu.classList.add = 'menu';
-    menu.classList.add = 'open';
-  
+    menu.classList.add('menu');
+     
     const ulist = document.createElement('ul');
-    menu.appendChild(ulist);  
-  //step 2
+   
+    //step 2
 
-    // for loop
+          // for loop
+          /* for(let i = 0; i<arr.length;i++){
+          const list = document.createElement('li');
+          list.textContent = arr[i]
+          ulist.appendChild(list);
+          }*/
+
     
-   /* for(let i = 0; i<arr.length;i++){
-
-    const list = document.createElement('li');
-      list.textContent = arr[i]
-      ulist.appendChild(list);
-    }*/
-
     // for each
+
     arr.forEach(e=>{
       const list = document.createElement('li');
       list.textContent = e;
       ulist.appendChild(list);
-
-    })
+       })
+      menu.appendChild(ulist); 
 
     //Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
-    const menuButton = document.querySelector('.menu-button');
-    menuButton.addEventListener('click',(event)=>{
 
-      const menu = document.querySelector('.menu');
-      menu.classList.toggle('menu-open');
+    const menuButton = document.querySelector('.menu-button');
+    menuButton.addEventListener('click',()=>{
+    menu.classList.toggle('menu--open');
     });
+
      return menu;
   }
+
+  const header = document.querySelector('.header');
+  
+  const menuCall = menuFunction(menuItems);
+
+  header.appendChild(menuCall);
  
   
  

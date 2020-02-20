@@ -139,12 +139,14 @@ const componentPanel = (object)=>{
     const expandButton = document.createElement('span');
     expandButton.classList.add('expandButton');
     expandButton.textContent = '\u25bc';
-    
+
+    article.classList.remove('article-open');
     
       // event listener
       expandButton.addEventListener('click',()=>{
-      article.classList.toggle('.article-open');
-      article.classList.toggle('.close')
+      
+      article.classList.toggle('article-open');
+      
                
     });
    
