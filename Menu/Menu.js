@@ -33,7 +33,6 @@ let menuItems = [
   //Step 6: add the menu component to the DOM.*/
   
   const menuFunction = (arr)=>{
-    let arrLength = arr.length;
     const menu = document.createElement('div');
     menu.classList.add = 'menu';
     menu.classList.add = 'open';
@@ -41,13 +40,15 @@ let menuItems = [
     const ulist = document.createElement('ul');
     menu.appendChild(ulist);  
   //step 2
-    // for loop
-    // for(let i = 0; i<arr.length;i++){
 
-    // const list = document.createElement('li');
-    //   list.textContent = arr[i]
-    //   ulist.appendChild(list);
-    // }
+    // for loop
+    
+   /* for(let i = 0; i<arr.length;i++){
+
+    const list = document.createElement('li');
+      list.textContent = arr[i]
+      ulist.appendChild(list);
+    }*/
 
     // for each
     arr.forEach(e=>{
@@ -61,13 +62,13 @@ let menuItems = [
     const menuButton = document.querySelector('.menu-button');
     menuButton.addEventListener('click',(event)=>{
 
-      const button1 = menuFunction(menuItems);
-     hd.appendChild(button1);
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('menu-open');
     });
      return menu;
   }
  
-  const hd = document.querySelector('.header');
+  
  
  
   

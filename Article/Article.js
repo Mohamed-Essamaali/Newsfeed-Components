@@ -113,58 +113,61 @@ const data = [
 
 */
 const componentPanel = (object)=>{
-    const article = document.createElement('div');
-    article.classList.add = 'article';
-    article.classList.add = 'article-open';
 
+    const article  = document.createElement('div');
+     article.classList.add('article','article-open','close');
+    
     const title = document.createElement('h2');
     title.textContent = object.title;
 
-    const dateArticle = document.createElement('p');
-    dateArticle.classList.add = 'date';
-    dateArticle.textContent = object.date;
+    const date = document.createElement('p');
+    date.classList.add ('date');
+    date.textContent = object.date;
 
     const firstP = document.createElement('p');
-    firstP.classList.add = 'firstP';
+    firstP.classList.add ('firstP');
     firstP.textContent = object.firstParagraph;
 
     const secondP = document.createElement('p');
-    secondP.classList.add = 'secondP';
+    secondP.classList.add('secondP');
     secondP.textContent = object.secondParagraph;
 
     const thirdP = document.createElement('p');
-    thirdP.classList.add = 'firstP';
+    thirdP.classList.add ('firstP');
     thirdP.textContent = object.thirdParagraph;
 
     const expandButton = document.createElement('span');
-    expandButton.classList.add= 'expandButton';
-
-    // call back of event listener
-    // const buttonToggler = ()=>{
-    //   expandButton.classList.toggle('.expandButton');
-    // };
-
-    // event listener
-    expandButton.addEventListener('click',()=>{
-      expandButton.classList.toggle('.expandButton');
-      article.classList.toggle('article-open');
+    expandButton.classList.add('expandButton');
+    expandButton.textContent = '\u25bc';
+    
+    
+      // event listener
+      expandButton.addEventListener('click',()=>{
+      article.classList.toggle('.article-open');
+      article.classList.toggle('.close')
+               
     });
+   
 
-    //append all elements to the article
+  
+
+  //append all elements to the article
     article.appendChild(title);
-    article.appendChild(dateArticle);
+    article.appendChild(expandButton);
+    article.appendChild(date);
     article.appendChild(firstP);
     article.appendChild(secondP);
     article.appendChild(thirdP);
-    article.appendChild(expandButton);
+  
   
    return article;
 }
 
+
+
 const articles = document.querySelector('.articles');
-data.forEach(object=>{
+data.map(object=>{
   const newArticle = componentPanel(object);
-console.log(newArticle);
   articles.appendChild(newArticle);
 })
 
