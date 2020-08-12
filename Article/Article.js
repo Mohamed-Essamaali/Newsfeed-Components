@@ -113,57 +113,70 @@ const data = [
 
 */
 
-const createArticle = item=>{
+const createArticle = (article)=>{
 
-  const article = document.createElement('div')
-  article.classList.add('article','close')
-  const title = document.querySelector('h2')
-  const date = document.createElement('p')
-  date.classList.add('date')
-  const paragraph1 = document.createElement('p')
-  const paragraph2 = document.createElement('p')
-  const paragraph3 = document.createElement('p')
+  const articlePanel = document.createElement('div');
+  articlePanel.classList.add('article','close');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');
+  date.classList.add('date');
+  const paragraphF = document.createElement('p');
+  const paragraphS = document.createElement('p');
+  const paragraphT = document.createElement('p');
   
-  const expandButton = document.createElement('span')
-  expandButton.classList.add('expandButton')
+  const expandButton = document.createElement('span');
+  expandButton.classList.add('expandButton');
 
 
 
-  title.textContent = item.title
-  date.textContent = item.date
-  paragraph1.textContent = item.firstParagraph
-  paragraph2.textContent = item.secondParagraph
-  paragraph3.textContent = item.thirdParagraph
+  title.textContent = article.title;
+  date.textContent = article.date;
+  paragraphF.textContent = article.firstParagraph;
+  paragraphS.textContent = article.secondParagraph;
+  paragraphT.textContent = article.thirdParagraph;
 
 
-  article.appendChild(title)
-  article.appendChild(date)
-  article.appendChild(paragraph1)
-  article.appendChild(paragraph2)
-  article.appendChild(paragraph3)
-  article.appendChild(expandButton)
+  articlePanel.appendChild(title);
+  articlePanel.appendChild(date);
+  articlePanel.appendChild(paragraphF);
+  articlePanel.appendChild(paragraphS);
+  articlePanel.appendChild(paragraphT);
+  articlePanel.appendChild(expandButton);
+  let open = "\u25B2"; //up
+  let close = "\u25Bc"; //down default
+
+  expandButton.textContent = close
  
   
   //event listener
   expandButton.addEventListener('click',event=>{
 
-    article.classList.toggle('article-open')
+    articlePanel.classList.toggle('article-open');
+
+    console.log(articlePanel.classList.value)
+    if(articlePanel.classList.value !='article-open')
+    expandButton.textContent = open
+    else if(articlePanel.classList.value !='close'){
+      expandButton.textContent = close;
+    }
 
   })
 
-    console.log('article', article)
 
-  return article
+  return articlePanel;
 }
 
 
 
-const articles = document.querySelector('.articles')
+const articles = document.querySelector('.articles');
 
-data.map(article=>{
+data.map(el=>{
   
-const newArticle =  createArticle(article)
-console.log(article)
-  articles.appendChild(newArticle)
+const newArticle =  createArticle(el);
+
+ return articles.appendChild(createArticle(el));
+
 })
+
+
 
