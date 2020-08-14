@@ -76,6 +76,9 @@
 .article-open {
   height: 400px;
 }
+.animated {
+  transform: scale(0.8);
+}
 .menu-button {
   position: absolute;
   left: 20px;

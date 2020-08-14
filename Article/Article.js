@@ -85,6 +85,21 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'web stack developer in 2020',
+    date: 'August 1st, 2020',
+    firstParagraph: `Coding is fun. join to us to learn a lot. we are working remotely. NO need to travel or spend gas or get a ticket. You need 
+    just computer keybord and monitor and ready to change the career.
+          `,
+
+    secondParagraph: ` ipsum dolor sit amet, consectetur adipiscing elit. Nidoqueen Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit. Nidoran Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nidorino Lorem ipsum `,
+
+    thirdParagraph: ` elit. Pidgeot Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rattata Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Raticate Lorem ipsum dolor sit amet, consectetur adipiscing elit. Spearow Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Fearow Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ekans Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Arbok Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pikac.`
   }
 ];
 
@@ -116,7 +131,7 @@ const data = [
 const createArticle = (article)=>{
 
   const articlePanel = document.createElement('div');
-  articlePanel.classList.add('article','close');
+  articlePanel.classList.add('article','close','animated');
   const title = document.createElement('h2');
   const date = document.createElement('p');
   date.classList.add('date');
@@ -152,11 +167,14 @@ const createArticle = (article)=>{
   expandButton.addEventListener('click',event=>{
 
     articlePanel.classList.toggle('article-open');
+    
+    articlePanel.classList.toggle('animated');
 
     console.log(articlePanel.classList.value)
-    if(articlePanel.classList.value !='article-open')
-    expandButton.textContent = open
-    else if(articlePanel.classList.value !='close'){
+   if(articlePanel.classList.value !='close'){
+      expandButton.textContent = open;
+    }
+    else if(articlePanel.classList.value !='article-open'){
       expandButton.textContent = close;
     }
 
